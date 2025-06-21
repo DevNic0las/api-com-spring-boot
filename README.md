@@ -41,13 +41,12 @@ Base URL: `/api/users`
   - Parâmetros: id (Long) - ID do usuário
   - **Body (JSON):**
 
-    ```json
-  {
+ ```json
+{
   "nome": "Lucas Silva",
   "email": "lucas.silva@email.com",
   "senha": "NovaSenha123!"
-  }
-  ```
+}
 
 Resposta: 200 OK: JSON com o usuário atualizado
 Erros: 404 Not Found: caso o usuário não exista
