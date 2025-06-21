@@ -26,7 +26,7 @@ Base URL: `/api/users`
     "email": "lucas@email.com",
     "senha": "Senha123!"
   }
-  
+  ```
   ### 3. Deletar um usuário
 
 - **DELETE** /api/users/{id}
@@ -35,16 +35,18 @@ Base URL: `/api/users`
 - Resposta: 200 OK: "Usuário deletado com sucesso" 404 Not Found: "Usuário não existe"
 
   ### 4. Atualizar um usuário
+  
   - **PUT** /api/users/{id}
   - Atualiza o usuário pelo ID.
   - Parâmetros: id (Long) - ID do usuário
   - Body (JSON):
-  ```
+  ```json
   {
   "nome": "Lucas Silva",
   "email": "lucas.silva@email.com",
   "senha": "NovaSenha123!"
 }
+```
 Resposta: 200 OK: JSON com o usuário atualizado
 Erros: 404 Not Found: caso o usuário não exista
 
