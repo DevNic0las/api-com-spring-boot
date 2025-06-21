@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.CRUD.CRUD.services.UserService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
@@ -29,7 +30,23 @@ public class UserController {
 
   @DeleteMapping("/{id}")
   public ResponseEntity<String> delete(@PathVariable Long id) {
-    userService.delete(id);
-    return ResponseEntity.ok("Usuário deletado com sucesso");
+    boolean idExist = userService.idExist(id);
+    if (idExist) {
+      userService.delete(id);
+      return ResponseEntity.ok("Usuário deletado com sucesso");
+    }
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não existe");
   }
+
+  @PutMapping("/{id}")
+  public ResponseEntity<User> update(@PathVariable Long id, @RequestBody @Valid User user) {
+    boolean idExists = userService.idExist(id);
+    if (idExists) {
+      user.setId(id);
+      User userEdited = userService.store(user);
+      return ResponseEntity.ok(userEdited);
+    }
+    return ResponseEntity.notFound().build();
+  }
+
 }
