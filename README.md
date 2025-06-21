@@ -39,6 +39,8 @@ Base URL: `/api/users`
   - **PUT** /api/users/{id}
   - Atualiza o usuário pelo ID.
   - Parâmetros: id (Long) - ID do usuário
+  - Resposta: 200 OK: JSON com o usuário atualizado
+  - Erros: 404 Not Found: caso o usuário não exista
   - **Body (JSON):**
 
  ```json
@@ -48,8 +50,6 @@ Base URL: `/api/users`
   "senha": "NovaSenha123!"
 }
 
-Resposta: 200 OK: JSON com o usuário atualizado
-Erros: 404 Not Found: caso o usuário não exista
 
 
   
