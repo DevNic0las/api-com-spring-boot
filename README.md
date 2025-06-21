@@ -40,13 +40,14 @@ Base URL: `/api/users`
   - Atualiza o usuário pelo ID.
   - Parâmetros: id (Long) - ID do usuário
   - Body (JSON):
+  - 
   ```json
   {
   "nome": "Lucas Silva",
   "email": "lucas.silva@email.com",
   "senha": "NovaSenha123!"
-}
-```
+}```
+
 Resposta: 200 OK: JSON com o usuário atualizado
 Erros: 404 Not Found: caso o usuário não exista
 
